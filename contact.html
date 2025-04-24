@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – SafeRound</title>
+    <style>
+    html, body { margin:0; padding:0; }
+    body { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height:1.5; max-width:900px; margin:2em auto; }
+    h1, h2, h3 { letter-spacing:-0.01em; line-height:1.2; font-weight:600; margin-bottom:0; }
+    .page-title { font-size:2.5rem; margin:0 0 .75em; font-weight:700; }
+    h1 { font-size:1.875rem; margin:1rem 0 .5rem; }
+    h2 { font-size:1.5rem; margin:.75rem 0 .5rem; }
+    h3 { font-size:1.25rem; margin:.75rem 0 .5rem; }
+    p { margin:.5em 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Logo + Title row -->
+    <div style="display: flex; align-items: center; gap: 0.5rem; margin: 1rem 0;">
+      <img src="saferound_square_v4.png"
+           alt="SafeRound logo"
+           style="width:32px; height:auto;"/>
+      <h1 class="page-title" style="margin:0;">SafeRound</h1>
+    </div>
+    <!-- Optional subtitle/description -->
+    <p class="page-description"></p>
+  </header>
+  <div class="page-body">
+    <h2>Contact</h2>
+    <form id="contact-form" style="margin:0.5em 0;">
+      <!-- same form fields as before -->
+      <div style="margin-bottom:0.5em;">
+        <label for="name">Name:</label><br/>
+        <input type="text" id="name" name="Name" required style="width:100%; padding:0.4em;"/>
+      </div>
+      <div style="margin-bottom:0.5em;">
+        <label for="email">Your Email:</label><br/>
+        <input type="email" id="email" name="Email" required style="width:100%; padding:0.4em;"/>
+      </div>
+      <div style="margin-bottom:0.5em;">
+        <label for="message">Message:</label><br/>
+        <textarea id="message" name="Message" required style="width:100%; padding:0.4em;"></textarea>
+      </div>
+      <button type="submit" style="padding:0.4em 0.8em;">Send</button>
+    </form>
+  </div><p>Back to <a href="index.html" style="text-decoration:underline; border-bottom:none; color:inherit;">SafeRound
+</a></p>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = encodeURIComponent(this.name.value);
+      const m = encodeURIComponent(this.message.value);
+      const em = encodeURIComponent(this.email.value);
+      window.location.href = 
+        'mailto:saferound@protonmail.com'
+        + '?subject=' + n
+        + '&body=' + m + '%0A%0AFrom:%20' + em;
+    });
+  </script>
+</body>
+</html>
